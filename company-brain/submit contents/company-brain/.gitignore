@@ -1,0 +1,6 @@
+.env
+data/
+collectors/secrets/
+secrets/
+collectors/.google_cache.json
+collectors/.ccwatch_cache.json

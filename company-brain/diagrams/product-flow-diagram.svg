@@ -1,0 +1,80 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4a4a4a"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#ffffff"/>
+  <text x="700" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#1a1a2e">何を作るか：情報の流れ(ベンダー中立設計)</text>
+
+  <!-- Employee / Agent -->
+  <rect x="490" y="65" width="420" height="80" rx="14" fill="#2E6DB4"/>
+  <text x="700" y="97" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">社員がAIエージェント経由で作業</text>
+  <text x="700" y="121" text-anchor="middle" font-size="12" fill="#dfeaf7">(Claude Code / Codex 等、既存SaaSをgateway経由で利用)</text>
+
+  <path d="M700 145 L700 178" stroke="#4a4a4a" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Triple channel -->
+  <rect x="60" y="183" width="400" height="110" rx="12" fill="#fdf3e3" stroke="#e0a72e" stroke-width="2"/>
+  <text x="260" y="212" text-anchor="middle" font-size="14" font-weight="700" fill="#7a5410">① 自己申告(CLAUDE.md/AGENTS.md)</text>
+  <text x="260" y="234" text-anchor="middle" font-size="12" fill="#5a4410">「何かしたら記録しなさい」</text>
+  <text x="260" y="252" text-anchor="middle" font-size="12" fill="#5a4410">→ 判断理由・例外処理を</text>
+  <text x="260" y="270" text-anchor="middle" font-size="12" fill="#5a4410">自然言語で捕捉</text>
+
+  <rect x="500" y="183" width="400" height="110" rx="12" fill="#e9f2fb" stroke="#2E6DB4" stroke-width="2"/>
+  <text x="700" y="212" text-anchor="middle" font-size="14" font-weight="700" fill="#123a63">② ライフサイクルフック</text>
+  <text x="700" y="234" text-anchor="middle" font-size="12" fill="#123a63">Claude Code: PreToolUse/PostToolUse</text>
+  <text x="700" y="252" text-anchor="middle" font-size="12" fill="#123a63">Codex: 同等のフック(共に2026年GA)</text>
+  <text x="700" y="270" text-anchor="middle" font-size="12" fill="#123a63">→ 統一スキーマに正規化して構造化ログ化</text>
+
+  <rect x="940" y="183" width="400" height="110" rx="12" fill="#f3e9fb" stroke="#8a4fc9" stroke-width="2"/>
+  <text x="1140" y="212" text-anchor="middle" font-size="14" font-weight="700" fill="#5a2f8a">③ 下流の完成シグナル(新規)</text>
+  <text x="1140" y="234" text-anchor="middle" font-size="12" fill="#5a2f8a">Slack: 自Botの投稿への反応のみ</text>
+  <text x="1140" y="252" text-anchor="middle" font-size="12" fill="#5a2f8a">Notion: 対象ページのみ、差分検出</text>
+  <text x="1140" y="270" text-anchor="middle" font-size="12" fill="#5a2f8a">→ 成果物が"どう完成したか"を追跡</text>
+
+  <path d="M260 293 L500 335" stroke="#4a4a4a" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M700 293 L700 335" stroke="#4a4a4a" stroke-width="2.5" marker-end="url(#arr)"/>
+  <path d="M1140 293 L900 335" stroke="#4a4a4a" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- Unified schema -->
+  <rect x="500" y="340" width="400" height="70" rx="12" fill="#1a1a2e"/>
+  <text x="700" y="368" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">統一ログスキーマ(ベンダー中立)</text>
+  <text x="700" y="388" text-anchor="middle" font-size="11" fill="#c7c7d6">agent_vendor / session_id / tool_name / outcome_signal</text>
+
+  <path d="M700 410 L700 445" stroke="#4a4a4a" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Log store -->
+  <rect x="500" y="450" width="400" height="70" rx="14" fill="#1a1a2e"/>
+  <text x="700" y="478" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">ログストア(検索・整理)</text>
+  <text x="700" y="500" text-anchor="middle" font-size="12" fill="#c7c7d6">1行要約＋手順・判断ポイント／全文検索</text>
+
+  <path d="M700 520 L700 555" stroke="#4a4a4a" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Brain -->
+  <rect x="540" y="560" width="320" height="80" rx="14" fill="#39A9DB"/>
+  <text x="700" y="593" text-anchor="middle" font-size="15" font-weight="700" fill="#fff">Brain：パターン検出</text>
+  <text x="700" y="615" text-anchor="middle" font-size="12" fill="#e8f6fc">同じ作業がN回繰り返され、完成シグナルが良好なら検出</text>
+
+  <path d="M700 640 L700 675" stroke="#4a4a4a" stroke-width="3" marker-end="url(#arr)"/>
+
+  <!-- Dashboard proposals -->
+  <rect x="320" y="680" width="330" height="100" rx="12" fill="#eafaf0" stroke="#2f9e5e" stroke-width="2"/>
+  <text x="485" y="710" text-anchor="middle" font-size="14" font-weight="700" fill="#1f6b3d">提案A：自走スキル化</text>
+  <text x="485" y="733" text-anchor="middle" font-size="12" fill="#1f6b3d">「これスキル化しませんか?」</text>
+  <text x="485" y="753" text-anchor="middle" font-size="12" fill="#1f6b3d">→ 顧客自身が実装</text>
+
+  <rect x="750" y="680" width="330" height="100" rx="12" fill="#fdeeee" stroke="#c85a5a" stroke-width="2"/>
+  <text x="915" y="710" text-anchor="middle" font-size="14" font-weight="700" fill="#8a2f2f">提案B：受注・マーケットプレイス</text>
+  <text x="915" y="733" text-anchor="middle" font-size="12" fill="#8a2f2f">「完全自動化しましょうか?」</text>
+  <text x="915" y="753" text-anchor="middle" font-size="12" fill="#8a2f2f">→ AIOTH or 外部会社が実装</text>
+
+  <path d="M485 780 Q485 815 650 830" stroke="#4a4a4a" stroke-width="2" marker-end="url(#arr)"/>
+  <path d="M915 780 Q915 815 750 830" stroke="#4a4a4a" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Loop back -->
+  <rect x="540" y="835" width="320" height="50" rx="10" fill="#f2f2f5" stroke="#8a8a98" stroke-width="1.5"/>
+  <text x="700" y="865" text-anchor="middle" font-size="13" font-weight="700" fill="#3a3a4a">実行スキルとして定着 → ①に戻る(フライホイール)</text>
+
+  <text x="1140" y="330" text-anchor="middle" font-size="10" fill="#8a4fc9">相関処理はテナント内で完結、外部には集計スコアのみ</text>
+</svg>

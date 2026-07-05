@@ -1,0 +1,19 @@
+[Unit]
+Description=Company Brain Notion poller
+After=network.target company-brain-server.service
+Wants=company-brain-server.service
+
+[Service]
+Type=simple
+User=chr
+WorkingDirectory=/srv/company-brain
+EnvironmentFile=/srv/company-brain/.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/srv/company-brain/.venv/bin/python -m collectors.notion_poller --interval 45
+Restart=on-failure
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

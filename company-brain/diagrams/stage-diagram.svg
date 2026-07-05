@@ -1,0 +1,56 @@
+<svg viewBox="0 0 1200 480" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#4a4a4a"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="480" fill="#ffffff"/>
+
+  <text x="600" y="45" text-anchor="middle" font-size="26" font-weight="700" fill="#1a1a2e">3つの段階：どこを見据えているか</text>
+
+  <!-- Stage 1 -->
+  <g>
+    <rect x="40" y="100" width="320" height="260" rx="16" fill="#f2f2f5" stroke="#c9c9d4" stroke-width="2"/>
+    <text x="200" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#6b6b7a">STAGE 1 — 今まで</text>
+    <text x="200" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="#2b2b3a">人力で働く時代</text>
+    <text x="200" y="210" text-anchor="middle" font-size="13" fill="#4a4a5a">Excel・Slack・メール等を</text>
+    <text x="200" y="230" text-anchor="middle" font-size="13" fill="#4a4a5a">人が直接操作</text>
+    <text x="200" y="270" text-anchor="middle" font-size="13" fill="#4a4a5a">業務知識は個人の頭の中</text>
+    <text x="200" y="290" text-anchor="middle" font-size="13" fill="#4a4a5a">(SOPに書かれない例外判断)</text>
+    <text x="200" y="330" text-anchor="middle" font-size="12" fill="#8a8a98">→ ログは残らない</text>
+  </g>
+
+  <path d="M368 230 L432 230" stroke="#4a4a4a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2 (highlighted) -->
+  <g>
+    <rect x="440" y="85" width="320" height="290" rx="16" fill="#2E6DB4" stroke="#1d4d85" stroke-width="3"/>
+    <text x="600" y="122" text-anchor="middle" font-size="15" font-weight="700" fill="#cfe4fb">STAGE 2 — 今ここ / 今回のターゲット</text>
+    <text x="600" y="155" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">エージェントwise</text>
+    <text x="600" y="178" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">な働き方</text>
+    <text x="600" y="215" text-anchor="middle" font-size="13" fill="#eaf3fc">社員がAIエージェント経由で</text>
+    <text x="600" y="235" text-anchor="middle" font-size="13" fill="#eaf3fc">日常業務を行う(Claude Code/Codex等)</text>
+    <text x="600" y="270" text-anchor="middle" font-size="13" fill="#eaf3fc">作業ログが副産物として</text>
+    <text x="600" y="290" text-anchor="middle" font-size="13" fill="#eaf3fc">自動的に溜まっていく</text>
+    <rect x="490" y="315" width="220" height="40" rx="8" fill="#ffffff" opacity="0.15"/>
+    <text x="600" y="340" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">→ 我々はここを今作る</text>
+  </g>
+
+  <path d="M768 230 L832 230" stroke="#4a4a4a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3 -->
+  <g>
+    <rect x="840" y="100" width="320" height="260" rx="16" fill="#eaf6f0" stroke="#39A9DB" stroke-width="2"/>
+    <text x="1000" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#2E6DB4">STAGE 3 — この先(ビジョン)</text>
+    <text x="1000" y="170" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a2e">Headless</text>
+    <text x="1000" y="192" text-anchor="middle" font-size="19" font-weight="700" fill="#1a1a2e">Enterprise</text>
+    <text x="1000" y="228" text-anchor="middle" font-size="13" fill="#3a3a4a">溜まったログを元に</text>
+    <text x="1000" y="248" text-anchor="middle" font-size="13" fill="#3a3a4a">大部分がAPI経由で自動化</text>
+    <text x="1000" y="284" text-anchor="middle" font-size="13" fill="#3a3a4a">人間は判断・対面が</text>
+    <text x="1000" y="304" text-anchor="middle" font-size="13" fill="#3a3a4a">必要な仕事だけ担当</text>
+    <text x="1000" y="340" text-anchor="middle" font-size="12" font-weight="700" fill="#2E6DB4">(human-in-the-loopは残る)</text>
+  </g>
+
+  <text x="600" y="430" text-anchor="middle" font-size="14" fill="#5a5a6a">Stage2で溜めたログこそが、Stage3へ飛ぶために必要な"唯一の"データ資産</text>
+</svg>

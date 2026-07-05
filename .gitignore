@@ -20,3 +20,13 @@ browser-activity-logger/dist/
 .DS_Store
 .claude/
 *.log
+
+# --- company-brain: never commit secrets / credential state / audit logs ---
+# (belt-and-suspenders: these were already excluded when copying from the VPS)
+company-brain/**/.gstack/
+**/terminal-internal-token
+**/claude-available.json
+**/browse-audit.jsonl
+company-brain/**/.env
+company-brain/**/secrets/
+company-brain/**/data/
