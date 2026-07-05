@@ -1,0 +1,22 @@
+# --- Analyzer outputs: contain REAL personal work data (prompts, browsing,
+#     file paths). Never commit these. ---
+parsed_worklog_last_7_days.json
+worklog_report_last_7_days.html
+browser-exports/
+browser-activity-*.json
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# --- Browser extension build output & dependencies ---
+browser-activity-logger/node_modules/
+browser-activity-logger/dist/
+
+# --- OS / editor / tooling ---
+.DS_Store
+.claude/
+*.log

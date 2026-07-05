@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Browser Activity Logger — Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page__header">
+        <h1>Browser Activity Logger</h1>
+        <p class="page__subtitle">
+          Settings for what gets recorded as you browse. Adjust these to match
+          how much detail you want captured for later AI analysis.
+        </p>
+      </header>
+
+      <form id="settings-form" novalidate>
+        <!-- What to log ------------------------------------------------->
+        <section class="card">
+          <h2 class="card__title">What to log</h2>
+          <p class="card__desc">
+            Turn individual event types on or off. When an event type is off,
+            those interactions are never recorded.
+          </p>
+
+          <label class="toggle">
+            <input type="checkbox" id="clickLogging" />
+            <span class="toggle__body">
+              <span class="toggle__label">Clicks</span>
+              <span class="toggle__help"
+                >Record clicks on links, buttons, and other elements (metadata
+                such as element text, role, and location — not typed
+                content).</span
+              >
+            </span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" id="inputLogging" />
+            <span class="toggle__body">
+              <span class="toggle__label">Inputs</span>
+              <span class="toggle__help"
+                >Record when you type into fields. Whether the actual typed
+                <em>content</em> is saved depends on the allowlist below.</span
+              >
+            </span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" id="searchQueryLogging" />
+            <span class="toggle__body">
+              <span class="toggle__label">Search queries</span>
+              <span class="toggle__help"
+                >Record search terms you enter on search engines (Google, Bing,
+                DuckDuckGo, etc.).</span
+              >
+            </span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" id="formSubmitLogging" />
+            <span class="toggle__body">
+              <span class="toggle__label">Form submissions</span>
+              <span class="toggle__help"
+                >Record when you submit a form, including field metadata. Field
+                <em>values</em> follow the same allowlist rule as inputs.</span
+              >
+            </span>
+          </label>
+        </section>
+
+        <!-- Content saving --------------------------------------------->
+        <section class="card">
+          <h2 class="card__title">Where typed content is saved</h2>
+          <p class="card__desc">
+            By default only <strong>metadata</strong> about your interactions is
+            stored (which field, what kind of element, page title). The actual
+            <strong>content</strong> you type is saved
+            <strong>only on the business domains you list here</strong>.
+            Everywhere else, typed text is discarded and just the metadata is
+            kept.
+          </p>
+
+          <div class="field">
+            <label class="field__label" for="inputAllowlist"
+              >Input content allowlist</label
+            >
+            <p class="field__help">
+              One domain per line. On these domains, the text you type may be
+              saved alongside the event. Matched as a domain suffix (e.g.
+              <code>notion.so</code> also covers <code>www.notion.so</code>).
+            </p>
+            <textarea
+              id="inputAllowlist"
+              class="field__textarea"
+              rows="8"
+              spellcheck="false"
+              autocapitalize="off"
+              autocomplete="off"
+              placeholder="docs.google.com&#10;github.com&#10;notion.so"
+            ></textarea>
+          </div>
+
+          <p class="notice notice--security">
+            <strong>Sensitive fields are never stored</strong> — passwords, auth
+            tokens, credit-card numbers, and one-time passcodes (OTP) are always
+            dropped regardless of any setting on this page, even for allowlisted
+            domains.
+          </p>
+        </section>
+
+        <!-- Blocklist -------------------------------------------------->
+        <section class="card">
+          <h2 class="card__title">Domains to exclude entirely</h2>
+          <p class="card__desc">
+            Nothing at all is logged on these domains — no metadata, no content,
+            no events of any kind.
+          </p>
+
+          <div class="field">
+            <label class="field__label" for="blocklist">Blocklist</label>
+            <p class="field__help">
+              One domain per line. Matched as a domain suffix. Use this for
+              banking, health, or any site you never want recorded.
+            </p>
+            <textarea
+              id="blocklist"
+              class="field__textarea"
+              rows="6"
+              spellcheck="false"
+              autocapitalize="off"
+              autocomplete="off"
+              placeholder="mybank.example.com&#10;patient-portal.example.org"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- Storage ---------------------------------------------------->
+        <section class="card">
+          <h2 class="card__title">Storage</h2>
+          <p class="card__desc">
+            Events are kept in a ring buffer. Once the cap is reached, the
+            oldest events are dropped to make room for new ones.
+          </p>
+
+          <div class="field">
+            <label class="field__label" for="maxEvents"
+              >Maximum stored events</label
+            >
+            <p class="field__help">
+              A positive whole number (minimum 100). Higher values keep more
+              history but use more local storage.
+            </p>
+            <input
+              type="number"
+              id="maxEvents"
+              class="field__number"
+              min="100"
+              step="1"
+              inputmode="numeric"
+            />
+            <p class="field__error" id="maxEvents-error" role="alert" hidden></p>
+          </div>
+        </section>
+
+        <!-- Actions ---------------------------------------------------->
+        <div class="actions">
+          <button type="submit" id="save-btn" class="btn btn--primary">
+            Save
+          </button>
+          <button type="button" id="reset-btn" class="btn btn--ghost">
+            Reset to defaults
+          </button>
+          <span id="status" class="status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
+    </main>
+
+    <script src="options.js"></script>
+  </body>
+</html>

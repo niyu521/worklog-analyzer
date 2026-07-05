@@ -1,0 +1,17 @@
+{
+  "name": "browser-activity-logger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome MV3 extension that automatically records browser activity locally and exports it as JSON for later AI analysis. No data ever leaves the device.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "esbuild": "^0.21.5",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,57 @@
+<!-- Popup UI for the Browser Activity Logger extension.
+     The compiled bundle (popup.js) is loaded as a CLASSIC script. -->
+<link rel="stylesheet" href="popup.css" />
+<main class="popup">
+  <header class="header">
+    <h1 class="title">Activity Logger</h1>
+    <span id="master-badge" class="badge badge--off">OFF</span>
+  </header>
+
+  <section class="toggles">
+    <label class="toggle-row">
+      <span class="toggle-label">
+        <span class="toggle-name">Logging</span>
+        <span class="toggle-hint">Master switch for all recording</span>
+      </span>
+      <span class="switch">
+        <input type="checkbox" id="toggle-logging" />
+        <span class="switch-track" aria-hidden="true"></span>
+      </span>
+    </label>
+
+    <label class="toggle-row">
+      <span class="toggle-label">
+        <span class="toggle-name">Save input content</span>
+        <span class="toggle-hint">Persist typed values (all sites; secrets redacted)</span>
+      </span>
+      <span class="switch">
+        <input type="checkbox" id="toggle-input" />
+        <span class="switch-track" aria-hidden="true"></span>
+      </span>
+    </label>
+  </section>
+
+  <section class="stats">
+    <div class="stat">
+      <span class="stat-label">Logging for</span>
+      <span id="logging-uptime" class="stat-value">—</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Events stored</span>
+      <span id="event-count" class="stat-value">—</span>
+    </div>
+    <div class="stat stat--session">
+      <span class="stat-label">Session ID</span>
+      <code id="session-id" class="session-id" title="Click to copy">—</code>
+    </div>
+  </section>
+
+  <section class="actions">
+    <button id="btn-export" class="btn btn--primary" type="button">Export JSON</button>
+    <button id="btn-clear" class="btn btn--danger" type="button">Clear logs</button>
+  </section>
+
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+</main>
+
+<script src="popup.js"></script>

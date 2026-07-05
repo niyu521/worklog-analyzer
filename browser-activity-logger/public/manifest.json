@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Browser Activity Logger",
+  "version": "1.0.0",
+  "description": "Automatically records your browser activity locally and exports it as JSON for later AI analysis. No data ever leaves your device.",
+  "permissions": ["storage", "tabs", "unlimitedStorage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Browser Activity Logger"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
